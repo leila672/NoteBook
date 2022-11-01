@@ -3,6 +3,7 @@ const cors = require('cors');
 const prisma = require('./prisma');
 const body_parser = require("body-parser");
 const noterouter = require('./Routes/noteRoute')
+const userrouter = require('./Routes/userRoute')
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.use(cors());
 app.use(express.json()) // json
 app.use(body_parser.urlencoded({ extended: false }))//form
 app.use(noterouter);
+app.use(userrouter);
 
 //Not FOUND
 app.use((request, response) => {
